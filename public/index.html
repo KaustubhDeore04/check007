@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alpha Furnishings — Bespoke Furniture Just For You</title>
+<meta name="description" content="Alpha Furnishings — furniture store and bespoke design studio in Pimpri-Chinchwad, Pune." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body data-page="home">
+
+<div id="page-transition" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <a href="#home" class="brand">Alpha<span>Furnishings</span></a>
+  <ul class="nav-links">
+    <li><a href="#home" data-section="home">Home</a></li>
+    <li><a href="#collection" data-section="collection">Collection</a></li>
+    <li><a href="#shop" data-section="shop">Shop</a></li>
+    <li><a href="#contact" data-section="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     HOME
+     ============================================================ -->
+<section id="home">
+  <section class="hero-pin">
+    <div class="hero-video-stage">
+      <video id="hero-video" src="/videos/hero-sofa.mp4" poster="/images/hero-poster.jpg" muted playsinline preload="auto"></video>
+      <div class="hero-copy">
+        <h1>Bespoke furniture just for you.</h1>
+        <p>Sofas, beds, wardrobes and tables — designed and built around your space in Pimpri-Chinchwad.</p>
+        <div class="hero-cta-row">
+          <a href="#shop" class="btn btn-solid">View collection</a>
+          <a href="https://wa.me/919146949480" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp us</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint"><span class="line"></span>Scroll to explore</div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap intro-split">
+      <div>
+        <p class="eyebrow-note">Furniture that makes your space feel like home</p>
+        <h2 data-reveal style="opacity:0;transform:translateY(24px)">Bespoke furniture, built around you.</h2>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(24px)">
+        <p>Every room has different dimensions, requirements and personality. We start by understanding those needs, then guide you through design and build toward a piece that actually fits your property — not a showroom mock-up of it.</p>
+        <p>From sofas and rugs to chairs, tables, beds and storage, we help you select, design and build furniture around everyday life in your home.</p>
+        <a href="#contact" class="btn">Talk to us about a space →</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="cat-strip">
+    <a href="#shop" data-category="Living Room" data-reveal style="opacity:0;transform:translateY(24px)">
+      <span class="cat-name">Living Room</span>
+      <span class="cat-arrow">↗</span>
+    </a>
+    <a href="#shop" data-category="Bedroom" data-reveal style="opacity:0;transform:translateY(24px)">
+      <span class="cat-name">Bedroom</span>
+      <span class="cat-arrow">↗</span>
+    </a>
+    <a href="#shop" data-category="Workspace" data-reveal style="opacity:0;transform:translateY(24px)">
+      <span class="cat-name">Workspace</span>
+      <span class="cat-arrow">↗</span>
+    </a>
+    <a href="#shop" data-category="Bespoke" data-reveal style="opacity:0;transform:translateY(24px)">
+      <span class="cat-name">Bespoke Furniture</span>
+      <span class="cat-arrow">↗</span>
+    </a>
+  </nav>
+
+  <div class="offer-band">
+    <div class="wrap">
+      <strong>10% off for your first visit</strong>
+      <a href="#contact" class="btn">Plan a showroom visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COLLECTION (page 2) — 3D render + 3D rendering video
+     ============================================================ -->
+<section id="collection">
+  <section class="render-stage">
+    <div id="three-canvas"></div>
+    <div class="render-loading"><span class="spin-dot"></span>Rendering the piece…</div>
+    <div class="render-caption">
+      <h1>Every piece, built to order.</h1>
+      <p>This is a live render — drag to rotate, scroll to zoom. Your finished piece will look this considered.</p>
+    </div>
+    <div class="render-hint">Drag to rotate · Scroll to zoom</div>
+  </section>
+
+  <section class="section-pad" style="padding-bottom:0">
+    <div class="wrap section-head">
+      <p class="eyebrow-note">3D rendering</p>
+      <h2>See a piece take shape.</h2>
+      <p>Before it's built, every custom piece is modelled and rendered in 3D so you can see the exact form, proportions and finish — like this chair concept.</p>
+    </div>
+    <div class="wrap">
+      <div class="render-video-frame" data-reveal style="opacity:0;transform:translateY(24px)">
+        <video src="/videos/chair-3d-render.mp4" poster="/images/hero-poster.jpg" controls playsinline preload="metadata" muted loop></video>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap section-head">
+      <p class="eyebrow-note">Where to start</p>
+      <h2>Four ways into a room.</h2>
+    </div>
+    <div class="wrap">
+      <div class="showcase-grid">
+        <div class="showcase-card" data-reveal>
+          <span class="idx">Living Room</span>
+          <h3>Sofas &amp; seating</h3>
+          <p>Sectionals, accent chairs, centre tables and rugs built to sit together as one considered layout.</p>
+          <a href="#shop" data-category="Living Room">Browse Living Room →</a>
+        </div>
+        <div class="showcase-card" data-reveal>
+          <span class="idx">Bedroom</span>
+          <h3>Beds &amp; storage</h3>
+          <p>Beds and wardrobes designed around your room's real dimensions, not a catalogue standard.</p>
+          <a href="#shop" data-category="Bedroom">Browse Bedroom →</a>
+        </div>
+        <div class="showcase-card" data-reveal>
+          <span class="idx">Workspace</span>
+          <h3>Tables &amp; desks</h3>
+          <p>Office tables and compact desks for home offices and professional workspaces alike.</p>
+          <a href="#shop" data-category="Workspace">Browse Workspace →</a>
+        </div>
+        <div class="showcase-card" data-reveal>
+          <span class="idx">Bespoke</span>
+          <h3>Custom builds</h3>
+          <p>Tell us your space and requirements — we design and build a piece specifically for it.</p>
+          <a href="#shop" data-category="Bespoke">Start a bespoke enquiry →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================
+     SHOP (page 3)
+     ============================================================ -->
+<section id="shop">
+  <div class="wrap shop-head">
+    <p class="eyebrow-note">The catalogue</p>
+    <h1 class="fs-h1" style="font-family:var(--font-display);font-size:var(--fs-h1)">Shop the collection.</h1>
+    <p>Priced pieces are ready to order. Everything else is quoted around your space — ask on WhatsApp.</p>
+    <div class="filter-row" id="filter-row">
+      <button class="filter-chip" data-category="All">All</button>
+      <button class="filter-chip" data-category="Living Room">Living Room</button>
+      <button class="filter-chip" data-category="Bedroom">Bedroom</button>
+      <button class="filter-chip" data-category="Workspace">Workspace</button>
+      <button class="filter-chip" data-category="Bespoke">Bespoke</button>
+    </div>
+  </div>
+
+  <div class="wrap section-pad" style="padding-top:0">
+    <div class="product-grid" id="product-grid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT (page 4)
+     ============================================================ -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow-note">Visit or reach out</p>
+      <h1 style="font-family:var(--font-display);font-size:var(--fs-h1)">Let's talk about your space.</h1>
+      <p>Showroom open daily in Pimpri-Chinchwad. Wi-Fi on the premises, and 10% off for first-time visitors.</p>
+
+      <ul class="info-list">
+        <li><span>Address</span><span>Lane No.2, Waghere Colony, Jog Maharaj Garden, Near PCMC Swimming Pool, Pimprigaon, Pimpri-Chinchwad, 411017</span></li>
+        <li><span>Phone</span><span><a href="tel:09146949480">091469 49480</a></span></li>
+        <li><span>Email</span><span><a href="mailto:[email protected]">[email protected]</a></span></li>
+        <li><span>WhatsApp</span><span><a href="https://wa.me/919146949480" target="_blank" rel="noopener">Message us</a></span></li>
+      </ul>
+
+      <table class="hours-table">
+        <tr><td>Sunday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Monday</td><td>11:00 AM – 6:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>11:00 AM – 6:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>11:00 AM – 6:00 PM</td></tr>
+        <tr><td>Thursday</td><td>11:00 AM – 6:00 PM</td></tr>
+        <tr><td>Friday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Saturday</td><td>10:00 AM – 8:00 PM</td></tr>
+      </table>
+
+      <a class="btn" style="margin-top:1.5rem" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/search/?api=1&query=Alpha+Furnishings+Pimpri-Chinchwad+Pune">
+        View on Google Maps
+      </a>
+    </div>
+
+    <div id="enquire">
+      <h2 style="font-family:var(--font-display);font-size:var(--fs-h2)">Send an enquiry</h2>
+      <p>Tell us a little about what you need — we'll follow up by phone or WhatsApp.</p>
+      <form id="enquiry-form">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" name="phone" type="tel" required />
+        </div>
+        <div class="form-field">
+          <label for="f-message">What are you looking for?</label>
+          <textarea id="f-message" name="message" placeholder="e.g. a queen bed and wardrobe for a 12x10 room"></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Send enquiry</button>
+        <div class="form-msg" id="form-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Alpha Furnishings</h4>
+        <p>Lane No.2, Waghere Colony, Jog Maharaj Garden, Near PCMC Swimming Pool, Pimprigaon, Pimpri-Chinchwad, Maharashtra, 411017</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#collection">Collection</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <a href="tel:09146949480">091469 49480</a>
+        <a href="https://wa.me/919146949480" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:[email protected]">Email us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Alpha Furnishings</span>
+      <a href="#admin" id="admin-open-link">Admin</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     ADMIN — overlay, opened in place (no page navigation)
+     ============================================================ -->
+<div id="admin-overlay" class="admin-overlay" data-lenis-prevent aria-hidden="true">
+  <button type="button" class="admin-overlay-close" id="admin-close-btn" aria-label="Close admin panel">✕</button>
+
+  <!-- Login + forgot-password steps -->
+  <div class="admin-shell admin-view" id="admin-view-login">
+    <div class="admin-card">
+      <p class="eyebrow-note">Alpha Furnishings</p>
+
+      <!-- Step: log in -->
+      <div class="admin-step is-active" id="step-login">
+        <h1>Admin login</h1>
+        <p style="margin-bottom:1.5rem">Manage the products shown in the shop.</p>
+        <form id="login-form">
+          <div class="form-field">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" required />
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Log in</button>
+          <div class="form-msg error" id="login-error"></div>
+        </form>
+        <p style="margin-top:1.25rem"><a href="#" id="show-forgot" style="color:var(--brass-light)">Forgot password?</a></p>
+      </div>
+
+      <!-- Step: request code -->
+      <div class="admin-step" id="step-forgot-request">
+        <h1>Reset password</h1>
+        <p style="margin-bottom:1.5rem">We'll send a 6-digit code to the recovery email on file.</p>
+        <form id="forgot-request-form">
+          <div class="form-field">
+            <label for="forgot-username">Admin username</label>
+            <input id="forgot-username" name="username" type="text" autocomplete="username" required />
+          </div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Send code</button>
+          <div class="form-msg" id="forgot-request-msg"></div>
+        </form>
+        <p style="margin-top:1.25rem"><a href="#" class="back-to-login" style="color:var(--brass-light)">← Back to login</a></p>
+      </div>
+
+      <!-- Step: verify code -->
+      <div class="admin-step" id="step-forgot-verify">
+        <h1>Enter the code</h1>
+        <p style="margin-bottom:1.5rem">Check the recovery inbox for a 6-digit code. It expires in 10 minutes.</p>
+        <form id="forgot-verify-form">
+          <div class="form-field">
+            <label for="otp-code">6-digit code</label>
+            <input id="otp-code" name="code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" required />
+          </div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Verify code</button>
+          <div class="form-msg" id="forgot-verify-msg"></div>
+        </form>
+        <p style="margin-top:1.25rem"><a href="#" class="back-to-login" style="color:var(--brass-light)">← Back to login</a></p>
+      </div>
+
+      <!-- Step: set new password -->
+      <div class="admin-step" id="step-forgot-reset">
+        <h1>Set a new password</h1>
+        <p style="margin-bottom:1.5rem">Choose a new password for the admin account.</p>
+        <form id="forgot-reset-form">
+          <div class="form-field">
+            <label for="new-password">New password</label>
+            <input id="new-password" name="newPassword" type="password" autocomplete="new-password" minlength="6" required />
+          </div>
+          <div class="form-field">
+            <label for="confirm-password">Confirm new password</label>
+            <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="6" required />
+          </div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Update password</button>
+          <div class="form-msg" id="forgot-reset-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="admin-view" id="admin-view-dashboard">
+    <div class="admin-topbar">
+      <span class="brand" style="font-family:var(--font-display)">Alpha<span style="color:var(--brass-light)">Furnishings</span></span>
+      <div style="display:flex;align-items:center;gap:1.25rem;font-size:0.88rem;color:var(--muted)">
+        <span>Logged in as <strong id="admin-username" style="color:var(--paper)"></strong></span>
+        <button id="logout-btn" class="btn btn-small" type="button">Log out</button>
+      </div>
+    </div>
+
+    <div class="wrap" style="padding-top:2.5rem;padding-bottom:5rem">
+      <h1 style="font-family:var(--font-display);font-size:var(--fs-h2)">Product catalogue</h1>
+      <p>Add, edit or remove what shows up on the Shop section.</p>
+
+      <div class="admin-tabs">
+        <button class="admin-tab is-active" data-panel="panel-products">Products</button>
+        <button class="admin-tab" data-panel="panel-enquiries">Enquiries</button>
+      </div>
+
+      <div class="admin-panel is-active" id="panel-products">
+        <div class="admin-layout">
+          <div class="admin-form-box">
+            <h2 id="form-title">Add a product</h2>
+            <form id="product-form" style="margin-top:1.25rem">
+              <div class="form-field">
+                <label for="p-name">Name</label>
+                <input id="p-name" name="name" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="p-category">Category</label>
+                <select id="p-category" name="category" required>
+                  <option value="Living Room">Living Room</option>
+                  <option value="Bedroom">Bedroom</option>
+                  <option value="Workspace">Workspace</option>
+                  <option value="Bespoke">Bespoke</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="p-price">Price (₹)</label>
+                <input id="p-price" name="price" type="number" min="0" step="1" />
+              </div>
+              <div class="form-field" style="display:flex;align-items:center;gap:0.6rem">
+                <input id="p-on-request" name="priceOnRequest" type="checkbox" style="width:auto" />
+                <label for="p-on-request" style="margin:0">Price on request</label>
+              </div>
+              <div class="form-field">
+                <label for="p-desc">Description</label>
+                <textarea id="p-desc" name="description"></textarea>
+              </div>
+              <div style="display:flex;gap:0.6rem">
+                <button type="submit" class="btn btn-solid">Save product</button>
+                <button type="button" id="cancel-edit" class="btn btn-small" hidden>Cancel edit</button>
+              </div>
+              <div class="form-msg" id="product-form-msg"></div>
+            </form>
+          </div>
+
+          <div>
+            <table class="admin-table">
+              <thead>
+                <tr><th>Name</th><th>Category</th><th>Price</th><th>Added</th><th></th></tr>
+              </thead>
+              <tbody id="product-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-panel" id="panel-enquiries">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Name</th><th>Phone</th><th>Product</th><th>Message</th><th>Date</th></tr>
+          </thead>
+          <tbody id="enquiries-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/hero-video.js"></script>
+<script type="module" src="/js/three-scene.js"></script>
+<script src="/js/shop.js"></script>
+<script src="/js/contact.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

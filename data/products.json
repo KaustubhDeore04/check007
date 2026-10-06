@@ -1,0 +1,74 @@
+[
+  {
+    "id": "p-wardrobe-01",
+    "name": "Classic Wardrobe",
+    "category": "Bedroom",
+    "price": 9500,
+    "priceOnRequest": false,
+    "description": "A spacious storage wardrobe built for everyday bedroom use, finished to fit your room's proportions.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-office-table-01",
+    "name": "Office Table",
+    "category": "Workspace",
+    "price": 500,
+    "priceOnRequest": false,
+    "description": "A compact, sturdy work table suited to home offices and study corners.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-queen-bed-01",
+    "name": "Queen Size Bed",
+    "category": "Bedroom",
+    "price": 10000,
+    "priceOnRequest": false,
+    "description": "A well-built queen bed frame designed for comfort and long-term durability.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-ethan-sofa-01",
+    "name": "Ethan Sofa & Sectional",
+    "category": "Living Room",
+    "price": null,
+    "priceOnRequest": true,
+    "description": "Part of the Designer Looks \"Make It You\" collection — a modular sectional sofa built to your layout and fabric choice.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-centre-table-01",
+    "name": "Centre Table",
+    "category": "Living Room",
+    "price": null,
+    "priceOnRequest": true,
+    "description": "A coordinating centre table sized and finished to sit alongside your sofa.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-area-rug-01",
+    "name": "Area Rug",
+    "category": "Living Room",
+    "price": null,
+    "priceOnRequest": true,
+    "description": "A living-room rug chosen to anchor your seating arrangement.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-accent-chair-01",
+    "name": "Accent Chair",
+    "category": "Living Room",
+    "price": null,
+    "priceOnRequest": true,
+    "description": "A single seat built for reading corners and extra guest seating.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "p-bespoke-concept-01",
+    "name": "Bespoke Furniture Concept",
+    "category": "Bespoke",
+    "price": null,
+    "priceOnRequest": true,
+    "description": "Tell us your room's dimensions and requirements — we design and build a piece around them.",
+    "createdAt": "2026-09-25T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,1181 @@
+/* ============================================================
+   Alpha Furnishings — design tokens
+   Espresso-walnut base, aged-brass accent, sage as a quiet second
+   accent. Fraunces for display type, Work Sans for UI/body.
+   ============================================================ */
+
+:root {
+  --ink: #201710;
+  --ink-2: #2b2018;
+  --ink-3: #382a1e;
+  --paper: #ece2d2;
+  --paper-dim: #cfc3ac;
+  --brass: #b8813c;
+  --brass-light: #d9a860;
+  --sage: #79876c;
+  --muted: #a6957e;
+  --line: rgba(236, 226, 210, 0.14);
+  --line-strong: rgba(236, 226, 210, 0.28);
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+
+  --fs-hero: clamp(2.75rem, 6.2vw, 5.75rem);
+  --fs-h1: clamp(2rem, 4vw, 3.1rem);
+  --fs-h2: clamp(1.4rem, 2.6vw, 2.1rem);
+  --fs-lead: clamp(1.05rem, 1.4vw, 1.25rem);
+
+  --max: 1240px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --radius: 3px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Translucent "glass" backing used behind text from the Collection
+     section onward, so copy stays readable once that background is
+     changed away from the current dark ink (e.g. to white). Kept subtle
+     on the current dark background so it changes nothing visually today. */
+  --glass-bg: rgba(32, 23, 16, 0.62);
+  --glass-bg-soft: rgba(32, 23, 16, 0.48);
+  --glass-border: rgba(236, 226, 210, 0.1);
+  --glass-blur: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-light);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   Layout shell
+   ============================================================ */
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem var(--gutter);
+  background: var(--glass-bg-soft);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Page 1 (Home) only: the nav sits directly over the busy hero video, so
+   drop the frosted/translucent backing there and go fully solid for
+   maximum text legibility. Every other section keeps the glass look. */
+body[data-page="home"] .site-nav {
+  background: var(--ink-2);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.site-nav .brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+}
+
+.site-nav .brand span {
+  color: var(--brass-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--paper-dim);
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.3s var(--ease);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--brass-light);
+  transition: right 0.35s var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--paper);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  right: 0;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  background: transparent;
+  color: var(--paper);
+}
+
+.btn:hover {
+  border-color: var(--brass-light);
+  transform: translateY(-2px);
+}
+
+.btn-solid {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.btn-solid:hover {
+  background: var(--brass-light);
+  border-color: var(--brass-light);
+}
+
+.btn-whatsapp {
+  background: #3d5240;
+  border-color: #3d5240;
+  color: var(--paper);
+}
+
+.btn-whatsapp:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+.btn-small {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.82rem;
+}
+
+.btn-danger {
+  border-color: rgba(198, 92, 66, 0.6);
+  color: #e0a08c;
+}
+
+.btn-danger:hover {
+  background: rgba(198, 92, 66, 0.15);
+  border-color: #c65c42;
+}
+
+/* Section basics */
+
+section {
+  position: relative;
+}
+
+.section-pad {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+.eyebrow-note {
+  color: var(--brass-light);
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.section-head {
+  max-width: 44rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--ink-2);
+  opacity: 0;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: clamp(2.5rem, 6vw, 4rem) 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  background: var(--glass-bg-soft);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+/* Browsers without backdrop-filter support (older Firefox/Chromium)
+   fall back to a more opaque tint so text is still guaranteed readable,
+   just without the frosted-blur look. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-nav,
+  .render-caption,
+  .section-head,
+  .shop-head,
+  .showcase-card,
+  .product-card,
+  .contact-grid > div,
+  .admin-card,
+  .site-footer {
+    background: rgba(32, 23, 16, 0.88);
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.footer-grid h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--paper-dim);
+  font-size: 0.85rem;
+  margin: 0 0 0.9rem;
+}
+
+.footer-grid a {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  transition: color 0.25s var(--ease);
+}
+
+.footer-grid a:hover {
+  color: var(--brass-light);
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.footer-bottom a {
+  color: var(--muted);
+}
+
+.footer-bottom a:hover {
+  color: var(--brass-light);
+}
+
+@media (max-width: 720px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================================
+   HOME / page 1 — scroll-scrubbed video hero
+   ============================================================ */
+
+.hero-pin {
+  height: 320vh;
+  position: relative;
+}
+
+.hero-video-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(2.5rem, 8vw, 5rem);
+  padding: 0 var(--gutter);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-copy h1 {
+  font-size: var(--fs-hero);
+  color: #fff;
+  max-width: 16ch;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-copy p {
+  color: #f1e9dc;
+  font-size: var(--fs-lead);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  max-width: 38ch;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  pointer-events: all;
+  margin-top: 1.4rem;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(2.5rem, 8vw, 5rem);
+  z-index: 5;
+  color: #f1e9dc;
+  font-size: 0.78rem;
+  writing-mode: vertical-rl;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-scroll-hint .line {
+  width: 1px;
+  height: 46px;
+  background: rgba(241, 233, 220, 0.7);
+}
+
+/* Intro copy below the pinned video */
+
+.intro-split {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.intro-split h2 {
+  font-size: var(--fs-h1);
+}
+
+@media (max-width: 860px) {
+  .intro-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Category preview strip */
+
+.cat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.cat-strip a {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2rem);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.35s var(--ease);
+}
+
+.cat-strip a:hover {
+  background: var(--ink-2);
+}
+
+.cat-strip .cat-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--paper);
+}
+
+.cat-strip .cat-arrow {
+  color: var(--brass-light);
+  font-size: 1.4rem;
+  transition: transform 0.3s var(--ease);
+}
+
+.cat-strip a:hover .cat-arrow {
+  transform: translateX(6px);
+}
+
+@media (max-width: 860px) {
+  .cat-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .cat-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Offer band */
+
+.offer-band {
+  background: var(--brass);
+  color: var(--ink);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+}
+
+.offer-band .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.offer-band strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.offer-band .btn {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.offer-band .btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ============================================================
+   COLLECTION / page 2 — 3D render stage
+   ============================================================ */
+
+.render-stage {
+  position: relative;
+  height: 88vh;
+  min-height: 560px;
+  margin-top: 5.5rem;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+#collection {
+  background-image: url('/images/bg-collection.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--ink);
+}
+
+#three-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+}
+
+.render-caption {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 2.5rem;
+  z-index: 4;
+  max-width: 26rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.render-caption h1 {
+  font-size: var(--fs-h1);
+}
+
+.render-hint {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--glass-bg-soft);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.render-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  transition: opacity 0.5s var(--ease);
+  z-index: 6;
+  background: var(--ink);
+}
+
+.render-loading.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spin-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brass-light);
+  display: inline-block;
+  margin-right: 0.6rem;
+  animation: pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.4; }
+}
+
+/* 3D rendering video showcase (page 2, below the live render) */
+
+.render-video-frame {
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #000;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.render-video-frame video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Category showcase grid (page 2 lower section) */
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.showcase-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  padding: clamp(2rem, 5vw, 3.5rem);
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.showcase-card .idx {
+  color: var(--brass-light);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.showcase-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.showcase-card a {
+  color: var(--brass-light);
+  font-size: 0.88rem;
+  display: inline-block;
+  margin-top: 1.1rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+
+.showcase-card a:hover {
+  border-color: var(--brass-light);
+}
+
+@media (max-width: 720px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   SHOP / page 3 — catalogue
+   ============================================================ */
+
+#shop {
+  background-image: url('/images/bg-shop.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--ink);
+}
+
+.shop-head {
+  padding-top: clamp(7rem, 12vw, 9rem);
+  padding-left: clamp(1.5rem, 3vw, 2rem);
+  padding-right: clamp(1.5rem, 3vw, 2rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.filter-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.filter-chip {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.25s var(--ease);
+}
+
+.filter-chip:hover {
+  border-color: var(--brass-light);
+  color: var(--paper);
+}
+
+.filter-chip.is-active {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.product-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--glass-bg-soft);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: border-color 0.3s var(--ease);
+}
+
+.product-card:hover {
+  border-color: var(--line-strong);
+}
+
+.product-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.5rem;
+  color: var(--brass-light);
+}
+
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.product-card .cat-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-bottom: 0.9rem;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.product-price {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--paper);
+  margin: 0.8rem 0 1.2rem;
+}
+
+.product-price.on-request {
+  color: var(--muted);
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  padding: 3rem 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 940px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   CONTACT / page 4
+   ============================================================ */
+
+#contact {
+  background-image: url('/images/bg-contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--ink);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  padding-top: clamp(7rem, 12vw, 9rem);
+}
+
+.contact-grid > div {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.hours-table td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--paper-dim);
+}
+
+.hours-table td:last-child {
+  text-align: right;
+  color: var(--muted);
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.info-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+
+.info-list span:first-child {
+  color: var(--muted);
+}
+
+.form-field {
+  margin-bottom: 1.2rem;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.25s var(--ease);
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: var(--brass-light);
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-msg {
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+  min-height: 1.2em;
+}
+
+.form-msg.success { color: var(--sage); }
+.form-msg.error { color: #d98d78; }
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   ADMIN — overlay (opens in place over the single scrolling page)
+   ============================================================ */
+
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--ink);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  display: none;
+}
+
+.admin-overlay.is-open {
+  display: block;
+}
+
+.admin-overlay-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 2010;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--ink-2);
+  color: var(--paper);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.admin-overlay-close:hover {
+  border-color: var(--brass-light);
+  transform: rotate(90deg);
+}
+
+/* Scoped with #admin-overlay so these reliably win over .admin-shell's
+   own `display: flex` further down — same specificity would otherwise
+   let source order decide, which was hiding the dashboard behind a
+   login form stuck on screen after a successful login. */
+#admin-overlay .admin-view {
+  display: none;
+}
+
+#admin-view-login.is-active {
+  display: flex;
+}
+
+#admin-view-dashboard.is-active {
+  display: block;
+}
+
+.admin-step {
+  display: none;
+}
+
+.admin-step.is-active {
+  display: block;
+}
+
+.admin-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#admin-view-login {
+  background-image: url('/images/bg-admin-login.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+}
+
+.admin-card {
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--line);
+  padding: clamp(2rem, 5vw, 2.75rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.admin-card h1 {
+  font-size: 1.7rem;
+}
+
+.admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.admin-tab {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--paper-dim);
+}
+
+.admin-tab.is-active {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+
+.admin-panel {
+  display: none;
+}
+
+.admin-panel.is-active {
+  display: block;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.admin-form-box {
+  border: 1px solid var(--line);
+  padding: 1.75rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.admin-form-box h2 {
+  font-size: 1.15rem;
+}
+
+table.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+table.admin-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.78rem;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+table.admin-table td {
+  padding: 0.9rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+table.admin-table tr:hover td {
+  background: var(--ink-2);
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge-request {
+  font-size: 0.72rem;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-form-box {
+    position: static;
+  }
+}
